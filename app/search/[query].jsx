@@ -1,4 +1,4 @@
-import { View, Text, FlatList, Image } from "react-native";
+import { View, Text, FlatList } from "react-native";
 import React, { useEffect } from "react";
 import { useLocalSearchParams } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -15,8 +15,6 @@ const Search = () => {
   useEffect(() => {
     refetch();
   }, [query]);
-
-  console.log(query, posts);
 
   return (
     <SafeAreaView className="bg-primary h-full">
