@@ -6,17 +6,17 @@ const GlobalContext = createContext();
 export const useGlobalContext = () => useContext(GlobalContext);
 
 const GlobalProvider = ({ children }) => {
-    const [isLoggedIn, setisLoggedIn] = useState(false)
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
     const [user, setUser] = useState(null)
     const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         getCurrentUser().then((res) => {
             if(res) {
-                setisLoggedIn(true)
+                setIsLoggedIn(true)
                 setUser(res)
             } else {
-                setisLoggedIn(false)
+                setIsLoggedIn(false)
                 setUser(null)
             }
         }).catch ((error) => {
@@ -29,7 +29,7 @@ const GlobalProvider = ({ children }) => {
     return (
         <GlobalContext.Provider value={{
             isLoggedIn,
-            setisLoggedIn,
+            setIsLoggedIn,
             user,
             setUser,
             isLoading
